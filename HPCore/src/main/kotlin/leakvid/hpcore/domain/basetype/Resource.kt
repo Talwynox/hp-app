@@ -1,6 +1,6 @@
 package leakvid.hpcore.domain.basetype
 
-data class Ressource(
+data class Resource(
     var name: String,
     var maxValue: Int,
     var currentValue: Int,

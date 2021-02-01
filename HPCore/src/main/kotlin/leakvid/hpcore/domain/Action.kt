@@ -2,7 +2,7 @@ package leakvid.hpcore.domain
 
 import leakvid.hpcore.domain.basetype.Stat
 
-data class Skill(
+data class Action(
         val name: String,
         val description: String,
-        val bonus: Stat)
+        val attack: Stat) // TODO

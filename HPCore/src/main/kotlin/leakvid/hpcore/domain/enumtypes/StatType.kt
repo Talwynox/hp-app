@@ -1,10 +1,15 @@
 package leakvid.hpcore.domain.enumtypes
 
 enum class StatType{
-    STR,
-    DEX,
-    CON,
-    WIS,
-    INT,
-    CHA
+    MoveSpeed,
+    ArmorClass,
+    Strength,
+    Dexterity,
+    Constitution,
+    Wisdom,
+    Intelligence,
+    Charisma,
+    Proficiency,
+    Level,
+    ChallengeRating
 }

@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ComponentScan
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 
 @SpringBootApplication
-@ComponentScan("leakvid.hpcore.controller")
-@EnableMongoRepositories()
+@ComponentScan(basePackages = ["leakvid.hpcore.controller", "leakvid.hpcore.services"])
+@EnableMongoRepositories
 class App
 
 fun main(args: Array<String>) {

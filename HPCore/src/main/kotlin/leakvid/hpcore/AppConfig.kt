@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.MongoTemplate
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 
-
 @Configuration
 class AppConfig : AbstractMongoClientConfiguration() {
 

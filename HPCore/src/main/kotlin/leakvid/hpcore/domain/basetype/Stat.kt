@@ -1,6 +1,9 @@
 package leakvid.hpcore.domain.basetype
 
+import leakvid.hpcore.domain.enumtypes.StatType
+
 data class Stat(
-        var name: String,
-        var baseValue: Int,
-        var modifiers: List<ValueModifier>)
+        val name: StatType,
+        val value: Int,
+        val baseValue: Int,
+        val modifiers: List<ValueModifier>)

@@ -5,4 +5,4 @@ data class Spell(
         val description: String,
         val isVerbal: Boolean,
         val isSomatic: Boolean,
-        val needsMaterials: Boolean) //how to include dmg, area, save
+        val needsMaterials: Boolean) // TODO how to include dmg, area, save

@@ -4,37 +4,32 @@ import com.mongodb.client.MongoClient
 import com.mongodb.client.MongoClients
 import io.swagger.v3.oas.models.Components
 import io.swagger.v3.oas.models.OpenAPI
+import io.swagger.v3.oas.models.info.Info
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration
 import org.springframework.data.mongodb.core.MongoTemplate
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
+
 
 @Configuration
-class AppConfig : AbstractMongoClientConfiguration() {
-
+class AppConfig {
     @Bean
-    override fun getDatabaseName(): String {
-        return "Homebrew"
+    fun mongoClient(@Value("\${spring.data.mongodb.host}") host: String,
+                    @Value("\${spring.data.mongodb.port}") port: String): MongoClient {
+        return MongoClients.create("mongodb://${host}:${port}")
     }
 
     @Bean
-    override fun mongoClient(): MongoClient {
-        return MongoClients.create("mongodb://localhost:27017")
+    fun mongoTemplate(@Value("\${spring.data.mongodb.database}") databaseName: String ,
+                      @Autowired mongoClient: MongoClient): MongoTemplate {
+        return MongoTemplate(mongoClient, databaseName)
     }
 
     @Bean
-    fun mongoTemplate(): MongoTemplate? {
-        return MongoTemplate(mongoClient(), databaseName)
-    }
-
-    @Bean
-    fun customOpenAPI(@Value("\${springdoc.version}") appVersion: String?): OpenAPI? {
+    fun customOpenAPI(): OpenAPI? {
         return OpenAPI()
                 .components(Components())
-                .info(Info().title("Books API").version(appVersion)
-                        .license(License().name("Apache 2.0").url("http://springdoc.org")))
+                .info(Info().title("Homebrewer's Tools: Core"))
     }
 }

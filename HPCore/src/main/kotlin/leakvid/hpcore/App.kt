@@ -1,13 +1,15 @@
 package leakvid.hpcore
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 
-@SpringBootApplication
-@ComponentScan(basePackages = ["leakvid.hpcore.controller", "leakvid.hpcore.services"])
-@EnableMongoRepositories
+@SpringBootApplication(exclude = [MongoAutoConfiguration::class, MongoDataAutoConfiguration::class])
+@ComponentScan(basePackages = arrayOf("leakvid.hpcore.controller",
+									  "leakvid.hpcore.services",
+									  "leakvid.hpcore"))
 class App
 
 fun main(args: Array<String>) {

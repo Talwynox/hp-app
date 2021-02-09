@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.jvm.tasks.Jar
 
 plugins {
 	id("org.springframework.boot") version "2.4.2"
@@ -8,7 +9,7 @@ plugins {
 }
 
 group = "leakvid"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
@@ -37,3 +38,5 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+springBoot { mainClass.set("leakvid.hpcore.AppKt") }

@@ -1,1 +1,1 @@
-rootProject.name = "Homebrewer's Pack"
+rootProject.name = "HomebrewersPack"

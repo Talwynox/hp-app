@@ -3,22 +3,26 @@ import './style.css'
 import { connect, RootStateOrAny } from 'react-redux'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core'
 import { Encounter } from '../../services/openAPIClient'
-import { store } from '../../app/store'
 import { loadAction } from '../../app/features/encounter/actions'
 
 interface Props {
   items: Encounter[]
+  loadData: () => void
 }
 
 const mapStateToProps = (state: RootStateOrAny) => ({
   items: state.encounterReducer.encounters
 })
 
-export const EncounterList = (props: Props) => {
 
+const mapDispatchToProps = (dispatch: any) => ({ // TODO 
+  loadData: () => dispatch(loadAction([])),
+});
+
+export const EncounterList = (props: Props) => {
   useEffect(() => {
-    store.dispatch({type: EncounterActionTypes.LOAD, payload: []})
-  })
+    props.loadData()
+  }, [])
 
   return (
     <TableContainer>
@@ -42,4 +46,4 @@ export const EncounterList = (props: Props) => {
   )
 }
 
-export default connect(mapStateToProps)(EncounterList)
+export default connect(mapStateToProps, mapDispatchToProps)(EncounterList)

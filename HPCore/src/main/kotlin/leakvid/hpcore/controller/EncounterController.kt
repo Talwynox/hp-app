@@ -14,6 +14,7 @@ import leakvid.hpcore.services.IEncounterService
 import org.springframework.web.bind.annotation.*
 
 @RestController
+@CrossOrigin //TODO fix security issues
 @RequestMapping("/encounter")
 class EncounterController(val service: IEncounterService) {
     @GetMapping

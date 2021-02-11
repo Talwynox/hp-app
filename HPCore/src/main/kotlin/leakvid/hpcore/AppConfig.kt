@@ -27,9 +27,11 @@ class AppConfig {
     }
 
     @Bean
-    fun customOpenAPI(): OpenAPI? {
+    fun customOpenAPI(@Value("\${api.version}") version: String): OpenAPI? {
         return OpenAPI()
                 .components(Components())
-                .info(Info().title("Homebrewer's Tools: Core"))
+                .info(Info()
+                        .title("Homebrewer's Tools: Core")
+                        .version(version))
     }
 }

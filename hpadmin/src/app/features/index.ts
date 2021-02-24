@@ -1,10 +1,10 @@
 import { combineEpics } from 'redux-observable'
 import { combineReducers } from 'redux'
 import { encounterReducer } from './encounter/reducers'
-import { getEncountersEpic } from './encounter/epics';
+import { getAllEncountersEpic } from './encounter/epics';
 
 export const rootEpic = combineEpics(
-  getEncountersEpic
+  getAllEncountersEpic
 )
 
 export const rootReducer = combineReducers({

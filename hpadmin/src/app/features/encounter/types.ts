@@ -3,7 +3,8 @@ import { ActionType } from 'typesafe-actions';
 import * as encounterAction from './actions';
 
 export enum EncounterActionTypes {
-  LOAD = 'load'
+  GET_ALL = 'getAll',
+  MERGE_STATE = 'mergeState'
 }
 
 export type EncounterActions = ActionType<typeof encounterAction>;

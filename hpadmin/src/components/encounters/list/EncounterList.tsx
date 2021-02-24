@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
-import './style.css'
+import { useEffect } from 'react'
 import { connect, RootStateOrAny } from 'react-redux'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core'
-import { Encounter } from '../../services/openAPIClient'
-import { loadAction } from '../../app/features/encounter/actions'
+import { Encounter } from '../../../services/openAPIClient'
+import { getAllAction } from '../../../app/features/encounter/actions'
+import { Link } from 'react-router-dom'
+import BallotIcon from '@material-ui/icons/Ballot'
 
 interface Props {
   items: Encounter[]
@@ -14,9 +15,8 @@ const mapStateToProps = (state: RootStateOrAny) => ({
   items: state.encounterReducer.encounters
 })
 
-
-const mapDispatchToProps = (dispatch: any) => ({ // TODO 
-  loadData: () => dispatch(loadAction([])),
+const mapDispatchToProps = (dispatch: any) => ({ 
+  loadData: () => dispatch(getAllAction())
 });
 
 export const EncounterList = (props: Props) => {
@@ -30,6 +30,7 @@ export const EncounterList = (props: Props) => {
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
+            <TableCell>Details</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,6 +38,11 @@ export const EncounterList = (props: Props) => {
             <TableRow key={item.name}>
               <TableCell component="th" scope="row">
                 {item.name}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                <Link to={`/encounters/${item.name}`}>
+                  <BallotIcon/>
+                </Link>
               </TableCell>
             </TableRow>
           ))}

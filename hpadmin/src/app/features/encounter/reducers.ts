@@ -5,8 +5,11 @@ export function encounterReducer(
     action: EncounterActions
   ): EncounterState {
     switch (action.type) {
-        case EncounterActionTypes.LOAD:
-            return {encounters: action.payload}
+        case EncounterActionTypes.MERGE_STATE:
+            return {
+                ...state,
+                encounters: action.payload
+            }
         default:
             return state
     }

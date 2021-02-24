@@ -3,14 +3,18 @@ import { EncounterActionTypes } from './types';
 import { Epic } from "redux-observable";
 import { isOfType } from "typesafe-actions";
 import { filter, mergeMap } from "rxjs/operators"
+import { mergeStateAction } from './actions';
 
+const getAll = () => {
+  return new EncounterControllerApi()
+  .getAll()
+  .then((response: Encounter[])=>{
+    return (mergeStateAction(response))
+  })
+}
 
-export const getEncountersEpic: Epic = (action$) =>
+export const getAllEncountersEpic: Epic = (action$) =>
   action$.pipe(
-    filter(isOfType((EncounterActionTypes.LOAD))),
-    mergeMap(() =>  new EncounterControllerApi()
-      .getAll()
-      .then((response: Encounter[])=>{
-        return ({type: EncounterActionTypes.LOAD, payload: response})
-      }))
+    filter(isOfType((EncounterActionTypes.GET_ALL))),
+    mergeMap(() => getAll())
   )

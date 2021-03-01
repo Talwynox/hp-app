@@ -25,44 +25,44 @@ import {
  * @export
  * @interface Resource
  */
-export interface Resource {
+export interface Resources {
     /**
      * 
      * @type {string}
-     * @memberof Resource
+     * @memberof Resources
      */
     name: string;
     /**
      * 
      * @type {number}
-     * @memberof Resource
+     * @memberof Resources
      */
     maxValue: number;
     /**
      * 
      * @type {number}
-     * @memberof Resource
+     * @memberof Resources
      */
     currentValue: number;
     /**
      * 
      * @type {number}
-     * @memberof Resource
+     * @memberof Resources
      */
     baseValue: number;
     /**
      * 
      * @type {Array<ValueModifier>}
-     * @memberof Resource
+     * @memberof Resources
      */
     modifiers: Array<ValueModifier>;
 }
 
-export function ResourceFromJSON(json: any): Resource {
+export function ResourceFromJSON(json: any): Resources {
     return ResourceFromJSONTyped(json, false);
 }
 
-export function ResourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): Resource {
+export function ResourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): Resources {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -76,7 +76,7 @@ export function ResourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-export function ResourceToJSON(value?: Resource | null): any {
+export function ResourceToJSON(value?: Resources | null): any {
     if (value === undefined) {
         return undefined;
     }

@@ -22,7 +22,7 @@ import {
     FeatureFromJSON,
     FeatureFromJSONTyped,
     FeatureToJSON,
-    Resource,
+    Resources,
     ResourceFromJSON,
     ResourceFromJSONTyped,
     ResourceToJSON,
@@ -59,7 +59,7 @@ export interface Encounter {
      * @type {Array<Resource>}
      * @memberof Encounter
      */
-    resource: Array<Resource>;
+    resources: Array<Resources>;
     /**
      * 
      * @type {{ [key: string]: string; }}
@@ -108,7 +108,7 @@ export function EncounterFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         
         'name': json['name'],
         'stats': ((json['stats'] as Array<any>).map(StatFromJSON)),
-        'resource': ((json['resource'] as Array<any>).map(ResourceFromJSON)),
+        'resources': ((json['resources'] as Array<any>).map(ResourceFromJSON)),
         'resistances': json['resistances'],
         'skills': ((json['skills'] as Array<any>).map(SkillFromJSON)),
         'features': ((json['features'] as Array<any>).map(FeatureFromJSON)),
@@ -127,7 +127,7 @@ export function EncounterToJSON(value?: Encounter | null): any {
         
         'name': value.name,
         'stats': ((value.stats as Array<any>).map(StatToJSON)),
-        'resource': ((value.resource as Array<any>).map(ResourceToJSON)),
+        'resource': ((value.resources as Array<any>).map(ResourceToJSON)),
         'resistances': value.resistances,
         'skills': ((value.skills as Array<any>).map(SkillToJSON)),
         'features': ((value.features as Array<any>).map(FeatureToJSON)),

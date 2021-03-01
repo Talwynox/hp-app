@@ -1,11 +1,11 @@
 import Model, { attr, hasMany } from '@ember-data/model';
 
 export default class EncounterModel extends Model {
-  @hasMany actions;
-  @hasMany features;
+  @attr actions;
+  @attr features;
   @attr('string') name;
-  @attr('object') resistances;
-  @hasMany resources;
-  @hasMany skills;
-  @hasMany stats;
+  @attr resistances;
+  @attr resources;
+  @attr skills;
+  @attr stats;
 }

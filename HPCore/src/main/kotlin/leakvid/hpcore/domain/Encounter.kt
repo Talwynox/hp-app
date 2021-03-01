@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 data class Encounter(
         @Id val name: String,
         val stats: List<Stat>,
-        val resource: List<Resource>,
+        val resources: List<Resource>,
         val resistances: Map<DamageType, ResistanceType>,
         val skills: List<Skill>,
         val features: List<Feature>,

@@ -20,3 +20,9 @@ services:
             SPRING_DATA_MONGODB_HOST: mongo
             SPRING_DATA_MONGODB_PORT: 27017
             SPRING_DATA_MONGODB_DATABASE: core
+            
+    hpadmin:
+        build: ./hpadmin
+        restart: always
+        ports:
+            - "3000:3000"

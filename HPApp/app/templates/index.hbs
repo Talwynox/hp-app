@@ -1,9 +1,5 @@
-<ul>
-    {{#each model as |encounter|}}
-        <li>
-            {{encounter.name}}
-        </li>
-    {{/each}}
-</ul>
 <MonsterList />
+ {{data-table
+  content=model
+}}
 {{outlet}}

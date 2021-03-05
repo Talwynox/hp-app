@@ -1,6 +1,6 @@
 package leakvid.hpcore.domain.enumtypes
 
-enum class ResourceTypes{
+enum class ResourceType{
     HitPoints,
     HitDice,
     Action,

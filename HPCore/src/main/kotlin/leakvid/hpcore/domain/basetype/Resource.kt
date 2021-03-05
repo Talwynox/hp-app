@@ -1,8 +1,9 @@
 package leakvid.hpcore.domain.basetype
 
+import leakvid.hpcore.domain.enumtypes.ResourceType
+
 data class Resource(
-    var name: String,
-    var maxValue: Int,
-    var currentValue: Int,
-    var baseValue: Int,
-    var modifiers: List<ValueModifier>)
+        var name: ResourceType,
+        var maxValue: Int,
+        var baseValue: Int,
+        var modifiers: List<ValueModifier>)

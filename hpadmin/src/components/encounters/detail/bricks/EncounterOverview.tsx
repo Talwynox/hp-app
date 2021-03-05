@@ -7,7 +7,6 @@ import { useState } from 'react'
 
 interface Props{
   encounter: Encounter
-  detailSelector: Function
 }
 
 export const EncounterOverview = (props: Props) => {
@@ -23,7 +22,7 @@ export const EncounterOverview = (props: Props) => {
               {props.encounter.name}
             </ListSubheader>
           }>
-          <ListItem button onClick={handleClick}>
+          <ListItem onClick={handleClick}>
             <ListItemIcon>
               <BallotIcon/>
             </ListItemIcon>
@@ -31,7 +30,7 @@ export const EncounterOverview = (props: Props) => {
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <StatList stats={props.encounter.stats} onStatClicked={props.detailSelector}/>
+            <StatList stats={props.encounter.stats}/>
           </Collapse>
         </List>
       </CardContent>

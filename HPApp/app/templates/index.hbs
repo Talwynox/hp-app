@@ -1,7 +1,7 @@
 <MonsterList />
 {{#table-data records=model as |tableData|}}
 
-{{#tableData.table class="table-striped col-12" as |table|}}
+  {{#tableData.table class="table-striped col-12" as |table|}}
     {{#table.header as |header|}}
       {{#header.row as |row|}}
         {{#row.cell}}
@@ -20,7 +20,7 @@
 
       {{#body.row as |row|}}
         {{#row.cell}}
-          c1 {{record.name}}
+            <LinkTo @route="monster.details" @model={{record}}>{{record.name}}</LinkTo>
         {{/row.cell}}
         {{#row.cell}}
           c2 {{record.stats}}

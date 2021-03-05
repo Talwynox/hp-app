@@ -22,18 +22,10 @@ import {
     FeatureFromJSON,
     FeatureFromJSONTyped,
     FeatureToJSON,
-    Resources,
-    ResourceFromJSON,
-    ResourceFromJSONTyped,
-    ResourceToJSON,
     Skill,
     SkillFromJSON,
     SkillFromJSONTyped,
     SkillToJSON,
-    Stat,
-    StatFromJSON,
-    StatFromJSONTyped,
-    StatToJSON,
 } from './';
 
 /**
@@ -50,16 +42,64 @@ export interface Encounter {
     name: string;
     /**
      * 
-     * @type {Array<Stat>}
+     * @type {number}
      * @memberof Encounter
      */
-    stats: Array<Stat>;
+    challengeRating: number;
     /**
      * 
-     * @type {Array<Resource>}
+     * @type {number}
      * @memberof Encounter
      */
-    resources: Array<Resources>;
+    armorClass: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Encounter
+     */
+    hP?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Encounter
+     */
+    strength: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Encounter
+     */
+    dexterity: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Encounter
+     */
+    constitution: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Encounter
+     */
+    intelligence: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Encounter
+     */
+    wisdom: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Encounter
+     */
+    charisma: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Encounter
+     */
+    moveSpeed: number;
     /**
      * 
      * @type {{ [key: string]: string; }}
@@ -84,6 +124,12 @@ export interface Encounter {
      * @memberof Encounter
      */
     actions: Array<Action>;
+    /**
+     * 
+     * @type {number}
+     * @memberof Encounter
+     */
+    hp: number;
 }
 
 /**
@@ -107,12 +153,21 @@ export function EncounterFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     return {
         
         'name': json['name'],
-        'stats': ((json['stats'] as Array<any>).map(StatFromJSON)),
-        'resources': ((json['resources'] as Array<any>).map(ResourceFromJSON)),
+        'challengeRating': json['challengeRating'],
+        'armorClass': json['armorClass'],
+        'hP': !exists(json, 'HP') ? undefined : json['HP'],
+        'strength': json['strength'],
+        'dexterity': json['dexterity'],
+        'constitution': json['constitution'],
+        'intelligence': json['intelligence'],
+        'wisdom': json['wisdom'],
+        'charisma': json['charisma'],
+        'moveSpeed': json['moveSpeed'],
         'resistances': json['resistances'],
         'skills': ((json['skills'] as Array<any>).map(SkillFromJSON)),
         'features': ((json['features'] as Array<any>).map(FeatureFromJSON)),
         'actions': ((json['actions'] as Array<any>).map(ActionFromJSON)),
+        'hp': json['hp'],
     };
 }
 
@@ -126,12 +181,21 @@ export function EncounterToJSON(value?: Encounter | null): any {
     return {
         
         'name': value.name,
-        'stats': ((value.stats as Array<any>).map(StatToJSON)),
-        'resource': ((value.resources as Array<any>).map(ResourceToJSON)),
+        'challengeRating': value.challengeRating,
+        'armorClass': value.armorClass,
+        'HP': value.hP,
+        'strength': value.strength,
+        'dexterity': value.dexterity,
+        'constitution': value.constitution,
+        'intelligence': value.intelligence,
+        'wisdom': value.wisdom,
+        'charisma': value.charisma,
+        'moveSpeed': value.moveSpeed,
         'resistances': value.resistances,
         'skills': ((value.skills as Array<any>).map(SkillToJSON)),
         'features': ((value.features as Array<any>).map(FeatureToJSON)),
         'actions': ((value.actions as Array<any>).map(ActionToJSON)),
+        'hp': value.hp,
     };
 }
 

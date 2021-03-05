@@ -13,44 +13,31 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import {
-    Stat,
-    StatFromJSON,
-    StatFromJSONTyped,
-    StatToJSON,
-} from './';
-
 /**
  * 
  * @export
- * @interface Skill
+ * @interface Action
  */
-export interface Skill {
+export interface Action {
     /**
      * 
      * @type {string}
-     * @memberof Skill
+     * @memberof Action
      */
     name: string;
     /**
      * 
      * @type {string}
-     * @memberof Skill
+     * @memberof Action
      */
     description: string;
-    /**
-     * 
-     * @type {Stat}
-     * @memberof Skill
-     */
-    bonus: Stat;
 }
 
-export function SkillFromJSON(json: any): Skill {
-    return SkillFromJSONTyped(json, false);
+export function ActionFromJSON(json: any): Action {
+    return ActionFromJSONTyped(json, false);
 }
 
-export function SkillFromJSONTyped(json: any, ignoreDiscriminator: boolean): Skill {
+export function ActionFromJSONTyped(json: any, ignoreDiscriminator: boolean): Action {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -58,11 +45,10 @@ export function SkillFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ski
         
         'name': json['name'],
         'description': json['description'],
-        'bonus': StatFromJSON(json['bonus']),
     };
 }
 
-export function SkillToJSON(value?: Skill | null): any {
+export function ActionToJSON(value?: Action | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -73,7 +59,6 @@ export function SkillToJSON(value?: Skill | null): any {
         
         'name': value.name,
         'description': value.description,
-        'bonus': StatToJSON(value.bonus),
     };
 }
 

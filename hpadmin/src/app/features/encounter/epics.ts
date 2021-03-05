@@ -1,9 +1,9 @@
-import { Encounter, EncounterControllerApi } from '../../../services/openAPIClient';
 import { EncounterActionTypes } from './types';
 import { Epic } from "redux-observable";
 import { isOfType } from "typesafe-actions";
 import { filter, mergeMap } from "rxjs/operators"
 import { mergeStateAction } from './actions';
+import { Encounter, EncounterControllerApi } from '../../../services/hpcore/';
 
 const getAll = () => {
   return new EncounterControllerApi()

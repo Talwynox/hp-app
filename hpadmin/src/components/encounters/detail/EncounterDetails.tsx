@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect, RootStateOrAny } from 'react-redux'
-import { Encounter } from '../../../services/openAPIClient'
 import { getAllAction } from '../../../app/features/encounter/actions'
 import { RouteComponentProps } from 'react-router-dom'
-import { EncounterOverview } from './bricks/EncounterOverview'
+import { EncounterOverview } from './EncounterStats'
 import { Grid } from '@material-ui/core'
-import { StatDetails } from './bricks/StatDetails'
+import { Encounter } from '../../../services/hpcore'
 
 interface Props{
   item: Encounter

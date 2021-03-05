@@ -16,46 +16,46 @@ import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface Roll
+ * @interface Skill
  */
-export interface Roll {
+export interface Skill {
+    /**
+     * 
+     * @type {string}
+     * @memberof Skill
+     */
+    name: string;
     /**
      * 
      * @type {number}
-     * @memberof Roll
+     * @memberof Skill
      */
-    flatModifier: number;
+    bonus: number;
     /**
      * 
-     * @type {number}
-     * @memberof Roll
+     * @type {string}
+     * @memberof Skill
      */
-    diceSize: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Roll
-     */
-    diceAmount: number;
+    info: string;
 }
 
-export function RollFromJSON(json: any): Roll {
-    return RollFromJSONTyped(json, false);
+export function SkillFromJSON(json: any): Skill {
+    return SkillFromJSONTyped(json, false);
 }
 
-export function RollFromJSONTyped(json: any, ignoreDiscriminator: boolean): Roll {
+export function SkillFromJSONTyped(json: any, ignoreDiscriminator: boolean): Skill {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'flatModifier': json['flatModifier'],
-        'diceSize': json['diceSize'],
-        'diceAmount': json['diceAmount'],
+        'name': json['name'],
+        'bonus': json['bonus'],
+        'info': json['info'],
     };
 }
 
-export function RollToJSON(value?: Roll | null): any {
+export function SkillToJSON(value?: Skill | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -64,9 +64,9 @@ export function RollToJSON(value?: Roll | null): any {
     }
     return {
         
-        'flatModifier': value.flatModifier,
-        'diceSize': value.diceSize,
-        'diceAmount': value.diceAmount,
+        'name': value.name,
+        'bonus': value.bonus,
+        'info': value.info,
     };
 }
 

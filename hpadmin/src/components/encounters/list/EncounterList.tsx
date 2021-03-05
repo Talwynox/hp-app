@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { connect, RootStateOrAny } from 'react-redux'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core'
-import { Encounter } from '../../../services/openAPIClient'
+import { Encounter } from '../../../services/hpcore'
 import { getAllAction } from '../../../app/features/encounter/actions'
 import { Link } from 'react-router-dom'
 import BallotIcon from '@material-ui/icons/Ballot'

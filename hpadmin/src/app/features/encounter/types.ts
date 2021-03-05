@@ -1,4 +1,4 @@
-import { Encounter } from '../../../services/openAPIClient/models/Encounter';
+import { Encounter } from '../../../services/hpcore/';
 import { ActionType } from 'typesafe-actions';
 import * as encounterAction from './actions';
 

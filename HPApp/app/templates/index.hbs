@@ -1,5 +1,48 @@
 <MonsterList />
- {{data-table
-  content=model
-}}
+{{#table-data records=model as |tableData|}}
+
+{{#tableData.table class="table-striped col-12" as |table|}}
+    {{#table.header as |header|}}
+      {{#header.row as |row|}}
+        {{#row.cell}}
+          First cell
+        {{/row.cell}}
+        {{#row.cell}}
+          Second cell
+        {{/row.cell}}
+        {{#row.cell}}
+          Third cell
+        {{/row.cell}}
+      {{/header.row}}
+    {{/table.header}}
+
+    {{#table.body as |body record|}}
+
+      {{#body.row as |row|}}
+        {{#row.cell}}
+          c1 {{record.name}}
+        {{/row.cell}}
+        {{#row.cell}}
+          c2 {{record.stats}}
+        {{/row.cell}}
+        {{#row.cell}}
+          c3 {{record}}
+        {{/row.cell}}
+      {{/body.row}}
+
+      {{#body.emptyRow as |row|}}
+        {{#row.cell colspan=3}}
+          No records
+        {{/row.cell}}
+      {{/body.emptyRow}}
+
+      {{#body.loadingRow as |row|}}
+        {{#row.cell colspan=3}}
+          Loading records
+        {{/row.cell}}
+      {{/body.loadingRow}}
+
+    {{/table.body}}
+  {{/tableData.table}}
+{{/table-data}}
 {{outlet}}

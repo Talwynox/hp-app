@@ -4,7 +4,8 @@ import * as encounterAction from './actions';
 
 export enum EncounterActionTypes {
   GET_ALL = 'getAll',
-  MERGE_STATE = 'mergeState'
+  MERGE_STATE = 'mergeState',
+  MERGE_ENCOUNTER = 'mergeEncounter'
 }
 
 export type EncounterActions = ActionType<typeof encounterAction>;

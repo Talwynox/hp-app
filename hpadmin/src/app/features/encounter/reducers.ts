@@ -1,3 +1,5 @@
+import { EncounterControllerApi } from '../../../services/hpcore';
+import { Encounter } from './../../../services/hpcore/models/Encounter';
 import { EncounterActions, EncounterActionTypes, EncounterState } from './types'
 
 export function encounterReducer(
@@ -10,6 +12,10 @@ export function encounterReducer(
                 ...state,
                 encounters: action.payload
             }
+        case EncounterActionTypes.MERGE_ENCOUNTER:
+            let encounter: Encounter = action.payload
+            new EncounterControllerApi().insert({encounter})
+            return state
         default:
             return state
     }

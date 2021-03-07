@@ -4,3 +4,4 @@ import { Encounter } from '../../../services/hpcore'
 
 export const getAllAction = () =>  action(EncounterActionTypes.GET_ALL, [])
 export const mergeStateAction = (encounters: Encounter[]) =>  action(EncounterActionTypes.MERGE_STATE, encounters)
+export const mergeEncounterAction = (encounter: Encounter) =>  action(EncounterActionTypes.MERGE_ENCOUNTER, encounter)

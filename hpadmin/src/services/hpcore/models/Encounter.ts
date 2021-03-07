@@ -57,7 +57,7 @@ export interface Encounter {
      * @type {number}
      * @memberof Encounter
      */
-    hP?: number;
+    hitPoints: number;
     /**
      * 
      * @type {number}
@@ -124,12 +124,6 @@ export interface Encounter {
      * @memberof Encounter
      */
     actions: Array<Action>;
-    /**
-     * 
-     * @type {number}
-     * @memberof Encounter
-     */
-    hp: number;
 }
 
 /**
@@ -155,7 +149,7 @@ export function EncounterFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'name': json['name'],
         'challengeRating': json['challengeRating'],
         'armorClass': json['armorClass'],
-        'hP': !exists(json, 'HP') ? undefined : json['HP'],
+        'hitPoints': json['hitPoints'],
         'strength': json['strength'],
         'dexterity': json['dexterity'],
         'constitution': json['constitution'],
@@ -167,7 +161,6 @@ export function EncounterFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'skills': ((json['skills'] as Array<any>).map(SkillFromJSON)),
         'features': ((json['features'] as Array<any>).map(FeatureFromJSON)),
         'actions': ((json['actions'] as Array<any>).map(ActionFromJSON)),
-        'hp': json['hp'],
     };
 }
 
@@ -183,7 +176,7 @@ export function EncounterToJSON(value?: Encounter | null): any {
         'name': value.name,
         'challengeRating': value.challengeRating,
         'armorClass': value.armorClass,
-        'HP': value.hP,
+        'hitPoints': value.hitPoints,
         'strength': value.strength,
         'dexterity': value.dexterity,
         'constitution': value.constitution,
@@ -195,7 +188,6 @@ export function EncounterToJSON(value?: Encounter | null): any {
         'skills': ((value.skills as Array<any>).map(SkillToJSON)),
         'features': ((value.features as Array<any>).map(FeatureToJSON)),
         'actions': ((value.actions as Array<any>).map(ActionToJSON)),
-        'hp': value.hp,
     };
 }
 

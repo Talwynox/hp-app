@@ -10,7 +10,7 @@ data class Encounter(
         @Id val name: String,
         val challengeRating: Double,
         val armorClass: Int,
-        val HP: Int,
+        val hitPoints: Int,
         val strength: Int,
         val dexterity: Int,
         val constitution: Int,

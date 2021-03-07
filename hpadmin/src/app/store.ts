@@ -11,7 +11,6 @@ export function store() {
   const store = createStore(
     rootReducer,
     enhancer
-
   );
 
   epicMiddleware.run(rootEpic)

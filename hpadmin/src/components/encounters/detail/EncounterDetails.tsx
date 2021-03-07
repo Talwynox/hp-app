@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect, RootStateOrAny } from 'react-redux'
-import { getAllAction } from '../../../app/features/encounter/actions'
+import { getAllAction, mergeEncounterAction } from '../../../app/features/encounter/actions'
 import { RouteComponentProps } from 'react-router-dom'
-import { EncounterOverview } from './EncounterStats'
-import { Grid } from '@material-ui/core'
+import { EncounterStats } from './EncounterStats'
+import { Button, Card, CardActions, CardContent, Grid } from '@material-ui/core'
 import { Encounter } from '../../../services/hpcore'
+import { EncounterFeatures } from './EncounterFeatures'
 
 interface Props{
-  item: Encounter
+  encounter: Encounter
   loadData: () => void
+  mergeData: (encounter: Encounter) => void
 }
 
 interface MatchParams{
@@ -16,24 +18,50 @@ interface MatchParams{
 }
 
 const mapStateToProps = (state: RootStateOrAny, props: RouteComponentProps<MatchParams>) => ({
-  item: state.encounterReducer.encounters.find((item: Encounter) => item.name === props.match.params.name)
+  encounter: state.encounterReducer.encounters.find((item: Encounter) => item.name === props.match.params.name)
 })
 
 const mapDispatchToProps = (dispatch: any) => ({ 
-  loadData: () => dispatch(getAllAction())
+  loadData: () => dispatch(getAllAction()),
+  mergeData: (encounter: Encounter) => dispatch(mergeEncounterAction(encounter))
 })
 
 export const EncounterDetails = (props: Props) => {
+  const [encounter, setEncounter] = useState<Encounter>(props.encounter)
+
   useEffect(() => {
     props.loadData()
   }, [])
-  
-  return typeof(props.item) === 'undefined' ? null : (
-    <Grid container justify="center">
-      <Grid key="overview" item>
-        <EncounterOverview encounter={props.item}/>
-      </Grid>
-    </Grid>
+
+  useEffect(() => {
+    setEncounter(props.encounter)
+  }, [props.encounter])
+
+  const onSubmit = () => {
+    if(encounter !== undefined){
+      props.mergeData(encounter)
+    }
+  }  
+
+  return props.encounter === undefined ? null : (
+    <Card>
+      <CardContent>
+        <h1>{props.encounter.name}</h1>
+        {encounter !== undefined &&
+        <Grid container justify="center">
+          <Grid key="stats" item>
+            <EncounterStats encounter={encounter} setEncounter={setEncounter}/>
+          </Grid>
+          <Grid key="features" item>
+            <EncounterFeatures encounter={encounter} setEncounter={setEncounter}/>
+          </Grid>
+        </Grid>
+        }
+      </CardContent>
+      <CardActions>
+        <Button variant="outlined" onClick={onSubmit}>Save Changes</Button>
+      </CardActions>
+    </Card>
   )
 }
 

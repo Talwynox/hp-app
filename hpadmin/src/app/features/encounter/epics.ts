@@ -5,7 +5,7 @@ import { filter, mergeMap } from "rxjs/operators"
 import { mergeStateAction } from './actions';
 import { Encounter, EncounterControllerApi } from '../../../services/hpcore/';
 
-const getAll = () => {
+const getAllEncounters = () => {
   return new EncounterControllerApi()
   .getAll()
   .then((response: Encounter[])=>{
@@ -16,5 +16,7 @@ const getAll = () => {
 export const getAllEncountersEpic: Epic = (action$) =>
   action$.pipe(
     filter(isOfType((EncounterActionTypes.GET_ALL))),
-    mergeMap(() => getAll())
+    mergeMap(() => getAllEncounters())
   )
+
+

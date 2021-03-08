@@ -1,1 +1,1 @@
-rootProject.name = "HomebrewersPack"
+rootProject.name = "hpcore"

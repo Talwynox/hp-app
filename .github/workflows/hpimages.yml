@@ -11,8 +11,10 @@ name: HPImages
 on:
   push:
     branches: [master]
+    paths: ['HPImages/**']
   pull_request:
     branches: [master]
+    paths: ['HPImages/**']
 
 defaults:
   run:

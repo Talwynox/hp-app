@@ -16,7 +16,7 @@ on:
     
 defaults:
   run:
-    working-directory: ./hpapp
+    working-directory: hpapp
     
 jobs:
 

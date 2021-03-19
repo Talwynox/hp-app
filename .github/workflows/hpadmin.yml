@@ -3,8 +3,10 @@ name: HPAdmin
 on:
   push:
     branches: [master]
+    paths: ['HPAdmin/**']
   pull_request:
     branches: [master]
+    paths: ['HPAdmin/**']
     
 defaults:
   run:

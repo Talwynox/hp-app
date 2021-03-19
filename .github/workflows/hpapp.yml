@@ -14,15 +14,20 @@ on:
   pull_request:
     branches: [master]
     
+defaults:
+  run:
+    working-directory: ./hpapp
+    
 jobs:
+
   build:
+  
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./hpapp
+    
     strategy:
       matrix:
         node-version: [14.x, 15.x]
+        
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}

@@ -27,4 +27,3 @@ jobs:
     - uses: actions/setup-node@v2
     - run: npm ci
     - run: npm run build --if-present
-          echo test, and deploy your project.

@@ -1,4 +1,4 @@
-name: HPApp
+name: HPAdmin
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
     
 defaults:
   run:
-    working-directory: HPApp
+    working-directory: HPAdmin
     
 jobs:
 
@@ -25,3 +25,4 @@ jobs:
     - uses: actions/setup-node@v2
     - run: npm ci
     - run: npm run build --if-present
+          echo test, and deploy your project.

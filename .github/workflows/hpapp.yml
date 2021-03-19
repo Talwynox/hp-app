@@ -3,8 +3,10 @@ name: HPApp
 on:
   push:
     branches: [master]
+    paths: ['HPApp/**']
   pull_request:
     branches: [master]
+    paths: ['HPApp/**']
     
 defaults:
   run:

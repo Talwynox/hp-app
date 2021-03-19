@@ -16,7 +16,7 @@ on:
 
 defaults:
   run:
-    working-directory: HPApp
+    working-directory: HPImages
 
 jobs:
   build:

@@ -20,9 +20,11 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 export const EncounterList = (props: Props) => {
+  const loadDataCallback = props.loadData
+
   useEffect(() => {
-    props.loadData()
-  }, [])
+    loadDataCallback()
+  }, [loadDataCallback])
 
   return (
     <TableContainer>

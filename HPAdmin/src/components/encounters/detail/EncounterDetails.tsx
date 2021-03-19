@@ -29,9 +29,11 @@ const mapDispatchToProps = (dispatch: any) => ({
 export const EncounterDetails = (props: Props) => {
   const [encounter, setEncounter] = useState<Encounter>(props.encounter)
 
+  const loadDataCallback = props.loadData
+
   useEffect(() => {
-    props.loadData()
-  }, [])
+    loadDataCallback()
+  }, [loadDataCallback])
 
   useEffect(() => {
     setEncounter(props.encounter)

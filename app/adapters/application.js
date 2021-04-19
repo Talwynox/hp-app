@@ -4,7 +4,6 @@ import config from 'hpapp/config/environment';
 export default class ApplicationAdapter extends JSONAPIAdapter {
     host = config.API.endpoint;
     pathForType(type) {
-        console.log("Endpoint : " + config.API.endpoint);
         return type;
     }
 }

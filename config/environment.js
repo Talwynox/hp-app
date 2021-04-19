@@ -27,6 +27,11 @@ module.exports = function (environment) {
     }
   };
 
+  if (!process.env.BACKEND_ENDPOINT){
+    console.log("Environment variable BACKEND_ENDPOINT not found using fallback.")
+    ENV.API.endpoint = "http://localhost:8080/";
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

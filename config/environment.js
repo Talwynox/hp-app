@@ -23,7 +23,7 @@ module.exports = function (environment) {
     },
 
     API: {
-      endpoint = process.env.BACKEND_ENDPOINT,
+      endpoint: process.env.BACKEND_ENDPOINT,
     }
   };
 

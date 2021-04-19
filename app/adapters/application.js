@@ -1,7 +1,8 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
+import config from 'hpapp/config/environment';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
-    host = process.env.BACKEND_ENDPOINT;
+    host = config.API.endpoint;
     pathForType(type) {
         return type;
     }

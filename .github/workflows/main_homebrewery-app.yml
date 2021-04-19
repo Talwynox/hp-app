@@ -20,7 +20,6 @@ jobs:
     - name: 'Checkout Github Action'
       uses: actions/checkout@master
 
-
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
@@ -32,7 +31,7 @@ jobs:
         npm run build --if-present
     - name: add process.json
       run: |
-        echo '{ script: "serve", env: { PM2_SERVE_SPA: "true", PM2_SERVE_HOMEPAGE: "/index.html" } }' >> dist/process.json
+        echo '{ script: "serve", env: { PM2_SERVE_SPA: "true", PM2_SERVE_HOMEPAGE: "/index.html", BACKEND_ENDPOINT: ${{ env.BACKEND_ENDPOINT }} } }' >> dist/process.json
 
     - name: Run Azure webapp deploy action using publish profile credentials
       uses: azure/webapps-deploy@v2

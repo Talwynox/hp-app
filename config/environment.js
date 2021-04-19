@@ -27,6 +27,10 @@ module.exports = function (environment) {
     }
   };
 
+  if (!process.env.BACKEND_ENDPOINT) {
+    ENV.API.endpoint = 'https://homebrewery-core.azurewebsites.net/'
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

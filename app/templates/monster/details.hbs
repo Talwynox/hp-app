@@ -1,9 +1,63 @@
-<div class="jumbo show-listing">
-  <h2 class="title">{{model.name}}</h2>
-  <div class="right detail-section">
-    <div class="detail owner">
-      <strong>CR:</strong> {{model.challengeRating}}
+
+<div key="creature" class="creature content">
+<hr class="orange-border" />
+  <div class="section-left">
+    <div>
+      <div class="creature-heading">
+        <h1>{{model.name}}</h1>
+        <!--h2>{this.state.creature.size} {this.state.creature.type}, {this.state.creature.alignment}</h2-->
+      </div>
+      <svg height="5" width="100%" class="tapered-rule">
+        <polyline points="0,0 400,2.5 0,5"></polyline>
+      </svg>
+      <div class="top-stats">
+        <div class="property-line first">
+          <h4>Armor Class </h4>
+          <p>{{model.armorClass}}</p>
+        </div>
+        <div class="property-line">
+          <h4>Hit Points </h4>
+          <p>{{model.hitPoints}}</p>
+        </div>
+        <div class="property-line last">
+          <h4>Speed </h4>
+          <p>{{model.moveSpeed}} ft.</p>
+        </div>
+        <svg height="5" width="100%" class="tapered-rule">
+        <polyline points="0,0 400,2.5 0,5"></polyline>
+
+      </svg>
+        <div class="abilities">
+          <div class="ability-strength">
+            <h4>STR</h4>
+            <p>{{model.strength}} ({{stats-calculator model.strength}})</p>
+          </div>
+          <div class="ability-dexterity">
+            <h4>DEX</h4>
+            <p>{{model.dexterity}} ({{stats-calculator model.dexterity}})</p>
+          </div>
+          <div class="ability-constitution">
+            <h4>CON</h4>
+            <p>{{model.constitution}} ({{stats-calculator model.constitution}})</p>
+          </div>
+          <div class="ability-intelligence">
+            <h4>INT</h4>
+            <p>{{model.intelligence}} ({{stats-calculator model.intelligence}})</p>
+          </div>
+          <div class="ability-wisdom">
+            <h4>WIS</h4>
+            <p>{{model.wisdom}} ({{stats-calculator model.wisdom}})</p>
+          </div>
+          <div class="ability-charisma">
+            <h4>CHA</h4>
+            <p>{{model.charisma}} ({{stats-calculator model.charisma}})</p>
+          </div>
+        </div>
+          <svg height="5" width="100%" class="tapered-rule">
+        <polyline points="0,0 400,2.5 0,5"></polyline>
+      </svg>
+      </div>
     </div>
   </div>
+  <hr class="orange-border bottom" />
 </div>
-{{outlet}}

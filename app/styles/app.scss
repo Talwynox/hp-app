@@ -1,0 +1,153 @@
+.creature {
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    min-width:280px;
+    margin: 85px;
+    padding: 5px 10px 20px;
+    background: #FDF1DC;
+    box-shadow: 0 0 1.5em #867453;
+  }
+  
+  .creature.wide.changable{
+    margin: 20px;
+    width: 40%;
+  }
+  
+  .creature.wide{
+    text-align: center;
+    width: 50%;
+    min-width: 560px;
+  }
+  .creature.wide .section-left,
+  .creature.wide .section-right{
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    width: 47.5%;
+  }
+  .creature.wide .section-left{
+    margin-right: 1.5%;
+  }
+  .creature.wide .section-right{
+    margin-left: 1.5%;
+  }
+  
+  .orange-border{
+    display: block;
+    box-sizing: initial;
+    height: 4px;
+    padding: 0 10px 0;
+    margin: -10px -10px 0;
+    border: 1.2px solid #000;
+    background: #E69A28;
+  }
+  .orange-border.bottom{
+    margin: 15px -10px -20px;
+  }
+  .tapered-rule{
+    display: block;
+    border: none;
+    width: 100%;
+    height: 4px;
+    color: #922609;
+    fill: #922609;
+    stroke: #922609;
+  }
+  .creature-heading h1{
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-family: 'Libre Baskerville';
+    font-size: 22px;
+    margin: 12px 0 0;
+    color: #7A200A;
+  }
+  .creature-heading::first-letter{
+    text-transform: uppercase;
+  }
+  .creature-heading h2{
+    font-style: italic;
+    font-size: 13px;
+    margin: 0 0 10px;
+  }
+  .property-line h4,
+  .property-line p{
+    display: inline;
+    color: #922609;
+    font-size: 14px;
+  }
+  .property-line h4{
+    font-weight: bold;
+    color: #7A200A;
+  }
+  .property-line.first{
+    margin: 10px 0 0
+  }
+  .property-line.last{
+    margin: 0 0 10px;
+  }
+  .abilities{
+    text-align: center;
+    font-size: 14px;
+    color: #922609;
+  }
+  .abilities > div{
+    display: inline-block;
+    vertical-align: middle;
+    width: 16%;
+    min-width: 35px;
+  
+  }
+  .abilities h4{
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px 0 4px;
+    color: #7A200A;
+  }
+  .abilities p{
+    margin: 0 0 5px;
+    line-height: 1.5em;
+  }
+  .property h4,
+  .property p{
+    display: inline;
+    font-size: 13.5px;
+    margin: 0;
+  }
+  .property h4{
+    font-style: italic;
+    font-weight: bold;
+  }
+  .property{
+    padding: 10px 2px 0;
+  }
+  .actions h3{
+    font-variant: small-caps;
+    font-weight: normal;
+    font-size: 21px;
+    letter-spacing: 1px;
+    margin: 20px 0 0;
+    padding: 0 0 10px;
+    border-bottom: 1px solid #7A200A;
+    color: #7A200A;
+  }
+  .actions{
+    margin: 0 0 20px;
+  }
+  .actions:last-child{
+    margin: 0;
+  }
+  .btn{
+    font-weight: bold;
+    font-variant: small-caps;
+    font-family: 'Libre Baskerville';
+    border-radius: 0;
+    margin: 5px 20px 0 20px;
+    border-color: #000;
+    background: #7A200A;
+  }
+  .ability-block{
+    margin: 20px;
+  }

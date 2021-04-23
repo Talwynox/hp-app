@@ -1,13 +1,12 @@
-<MonsterList />
     <div class="d-flex flex-row">
     {{#each model as |encounter|}}
-        <div class="card" style="width: 18rem;">
-        <img src="assets/images/dragon.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{encounter.name}}</h5>
-        <p class="card-text">This is a lvl {{encounter.challengeRating}} creature.</p>
-        <LinkTo class="btn btn-primary" @route="monster.details" @model={{encounter}}>View</LinkTo>
-    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="{{host}}/image/{{encounter.name}}" class="card-img-top aspect16to9" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{encounter.name}}</h5>
+            <p class="card-text">This is a lvl {{encounter.challengeRating}} creature.</p>
+            <LinkTo class="btn btn-primary" @route="monster.details" @model={{encounter}}>View</LinkTo>
+        </div>
     </div>
     {{/each}}
     </div>

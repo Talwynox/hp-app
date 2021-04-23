@@ -27,8 +27,6 @@ module.exports = function (environment) {
     }
   };
 
-  ENV.API.endpoint = 'https://homebrewery-core.azurewebsites.net/'
-
   if (!process.env.BACKEND_ENDPOINT) {
     ENV.API.endpoint = 'https://homebrewery-core.azurewebsites.net/'
   }

@@ -24,6 +24,7 @@ module.exports = function (environment) {
 
     API: {
       endpoint: process.env.BACKEND_ENDPOINT,
+      images: process.env.BACKEND_IMAGES
     }
   };
 
